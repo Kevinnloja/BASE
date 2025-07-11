@@ -543,6 +543,34 @@
             }
         }
 
+        .update-alert {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #27ae60;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                top: -50px;
+                opacity: 0;
+            }
+            to {
+                top: 20px;
+                opacity: 1;
+            }
+        }
+
         /* ================= RESPONSIVE DESIGN ================= */
         @media (max-width: 1100px) {
             .main-content {
@@ -634,6 +662,12 @@
                 padding: 3px 6px;
                 font-size: 0.6rem;
             }
+            
+            .update-alert {
+                top: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -691,6 +725,13 @@
                 right: 15px;
                 font-size: 30px;
             }
+            
+            .update-alert {
+                width: 90%;
+                text-align: center;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
         }
 
         /* Responsive indicator animation */
@@ -729,6 +770,10 @@
 </head>
 
 <body>
+    <div class="update-alert">
+        <i class="fas fa-map-marker-alt"></i> Coordenadas de Tapichalaca actualizadas a: 4.492375, -79.132389
+    </div>
+    
     <div class="app-container">
         <header class="header-section">
             <div class="title-container">
@@ -798,14 +843,14 @@
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4>Latitud</h4>
-                                <p>4.03814885 S</p>
+                                <p>4°02'17.3"S</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4>Longitud</h4>
-                                <p>79.18840381 W</p>
+                                <p>79°11'18.3"W</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -906,14 +951,14 @@
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4>Latitud</h4>
-                                <p>9503185.95</p>
+                                <p>4°29'32.6"S</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4>Longitud</h4>
-                                <p>707214.55</p>
+                                <p>79°07'56.6"W</p>
                             </div>
                         </div>
                         <div class="info-item">
@@ -951,7 +996,7 @@
                     <div class="map-container">
                         <!-- Vista satelital por defecto: parámetro t=k -->
                         <iframe
-                            src="https://maps.google.com/maps?q=-4.3425,-79.1205&z=15&output=embed&t=k&markers=color:blue|label:T|-4.3425,-79.1205"></iframe>
+                            src="https://maps.google.com/maps?q=-4.492375,-79.132389&z=15&output=embed&t=k&markers=color:blue|label:T|-4.492375,-79.132389"></iframe>
                         <div class="visual-label">Vista satelital de la ubicación</div>
                         <div class="map-controls">
                             <button class="map-btn" onclick="changeMapView(this, 'tapichalaca', 'satellite')">Satélite</button>
@@ -1027,6 +1072,11 @@
                     this.style.transform = 'translateY(0)';
                 });
             });
+            
+            // Ocultar alerta después de 5 segundos
+            setTimeout(() => {
+                document.querySelector('.update-alert').style.display = 'none';
+            }, 5000);
         });
 
         // Funciones para el modal de imágenes
@@ -1069,7 +1119,7 @@
             // Coordenadas de las estaciones
             const stations = {
                 'puear': { lat: -4.03814885, lng: -79.18840381 },
-                'tapichalaca': { lat: -4.3425, lng: -79.1205 }
+                'tapichalaca': { lat: -4.492375, lng: -79.132389 } // Coordenadas actualizadas
             };
             
             // Parámetro para vista
