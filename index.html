@@ -552,19 +552,20 @@
             color: white;
             padding: 15px 25px;
             border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             z-index: 2000;
             display: flex;
             align-items: center;
             gap: 10px;
             animation: slideDown 0.5s ease-out;
         }
-        
+
         @keyframes slideDown {
             from {
                 top: -50px;
                 opacity: 0;
             }
+
             to {
                 top: 20px;
                 opacity: 1;
@@ -577,7 +578,7 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
+
             .station-section {
                 gap: 25px;
             }
@@ -588,14 +589,15 @@
                 grid-template-columns: 1fr;
                 height: auto;
             }
-            
-            .map-container, 
+
+            .map-container,
             .photo-container {
                 height: 250px;
             }
         }
 
         @media (max-width: 768px) {
+
             /* Header adjustments */
             .header-section {
                 flex-direction: column;
@@ -603,66 +605,66 @@
                 gap: 15px;
                 text-align: center;
             }
-            
+
             .title-container {
                 padding-right: 0;
                 padding: 0 15px;
             }
-            
+
             .logos-container {
                 width: 100%;
                 justify-content: center;
                 flex-wrap: wrap;
                 gap: 15px;
             }
-            
+
             /* Reduce logo sizes on mobile */
             :root {
                 --logo-unl-height: 80px;
                 --logo-citiab-height: 120px;
                 --logo-third-height: 100px;
             }
-            
+
             /* Station card adjustments */
             .station-card {
                 padding: 15px;
             }
-            
+
             .station-info-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .card-header {
                 flex-direction: column;
                 text-align: center;
                 align-items: center;
             }
-            
+
             .station-icon {
                 margin-right: 0;
                 margin-bottom: 15px;
             }
-            
+
             .status-indicator {
                 justify-content: center;
             }
-            
+
             .station-description {
                 text-align: center;
             }
-            
+
             /* Map controls */
             .map-controls {
                 top: 5px;
                 right: 5px;
                 padding: 3px;
             }
-            
+
             .map-btn {
                 padding: 3px 6px;
                 font-size: 0.6rem;
             }
-            
+
             .update-alert {
                 top: 10px;
                 padding: 10px 15px;
@@ -671,61 +673,62 @@
         }
 
         @media (max-width: 480px) {
+
             /* Adjustments for very small screens */
             h1 {
                 font-size: 1.5rem;
             }
-            
+
             .section-title {
                 font-size: 1.4rem;
             }
-            
+
             .station-name {
                 font-size: 1.2rem;
             }
-            
+
             .station-description {
                 font-size: 0.85rem;
             }
-            
+
             /* Improve parameter display */
             .parameter-list {
                 justify-content: center;
             }
-            
+
             .parameter {
                 padding: 4px 10px;
             }
-            
+
             /* Footer adjustments */
             .contact-info {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .footer {
                 padding: 15px 10px;
             }
-            
+
             .footer-title {
                 font-size: 1rem;
             }
-            
+
             .credits {
                 font-size: 0.8rem;
             }
-            
+
             /* Modal adjustments */
             .modal-content {
                 width: 95%;
             }
-            
+
             .close {
                 top: 10px;
                 right: 15px;
                 font-size: 30px;
             }
-            
+
             .update-alert {
                 width: 90%;
                 text-align: center;
@@ -746,21 +749,22 @@
             border-radius: 20px;
             font-size: 0.8rem;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        
+
         @media (max-width: 768px) {
             .responsive-indicator {
                 display: block;
                 animation: slideIn 0.5s ease-out;
             }
         }
-        
+
         @keyframes slideIn {
             from {
                 transform: translateX(100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateX(0);
                 opacity: 1;
@@ -805,7 +809,8 @@
                             <i class="fas fa-mountain"></i>
                         </div>
                         <div class="station-info">
-                            <h3 class="station-name">Monitoreo de Alta Montaña</h3>
+                            <h3 class="station-name">Ecosistema: Bosque Siempre Verde montano del Sur de la cordillera
+                                oriental de los Andes</h3>
                             <div class="status-indicator status-online">
                                 <span class="status-dot"></span>
                                 En línea - Datos actualizados
@@ -835,7 +840,7 @@
                                 <p>2469 msnm</p>
                             </div>
                         </div>
-                         <div class="info-item">
+                        <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4>Latitud</h4>
@@ -887,7 +892,8 @@
                             src="https://maps.google.com/maps?q=-4.03814885,-79.18840381&z=15&output=embed&t=k&markers=color:blue|label:P|-4.03814885,-79.18840381"></iframe>
                         <div class="visual-label">Vista satelital de la ubicación</div>
                         <div class="map-controls">
-                            <button class="map-btn" onclick="changeMapView(this, 'puear', 'satellite')">Satélite</button>
+                            <button class="map-btn"
+                                onclick="changeMapView(this, 'puear', 'satellite')">Satélite</button>
                             <button class="map-btn" onclick="changeMapView(this, 'puear', 'map')">Mapa</button>
                             <button class="map-btn" onclick="changeMapView(this, 'puear', 'hybrid')">Híbrido</button>
                         </div>
@@ -913,7 +919,9 @@
                             <i class="fas fa-tree"></i>
                         </div>
                         <div class="station-info">
-                            <h3 class="station-name">Monitoreo de Reserva Natural</h3>
+                            <h3 class="station-name">
+                                Ecosistema: Bosque Siempre Verde montano del Sur de la cordillera oriental de los Andes
+                            </h3>
                             <div class="status-indicator status-online">
                                 <span class="status-dot"></span>
                                 En línea - Datos actualizados
@@ -922,9 +930,10 @@
                     </div>
 
                     <p class="station-description">
-                        La estación meteorológica, en Zamora Chinchipe,  registra variables climáticas en un bosque montano y páramo con alta
+                        La estación meteorológica, en Zamora Chinchipe, registra variables climáticas en un bosque
+                        montano y páramo con alta
                         biodiversidad. Gestionada por la Fundación Jocotoco, destaca por especies endémicas como la ave
-                        Grallaria ridgelyi, descubierta por el ornitólogo Robert Ridgely. 
+                        Grallaria ridgelyi, descubierta por el ornitólogo Robert Ridgely.
                     </p>
 
                     <div class="station-info-grid">
@@ -942,7 +951,7 @@
                                 <p>2646 msnm</p>
                             </div>
                         </div>
-                          <div class="info-item">
+                        <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4>Latitud</h4>
@@ -969,7 +978,7 @@
                                 <h4>Frecuencia de datos</h4>
                                 <p>Cada minuto</p>
                             </div>
-                        </div>                   
+                        </div>
                     </div>
 
                     <div class="parameters">
@@ -994,9 +1003,11 @@
                             src="https://maps.google.com/maps?q=-4.492375,-79.132389&z=15&output=embed&t=k&markers=color:blue|label:T|-4.492375,-79.132389"></iframe>
                         <div class="visual-label">Vista satelital de la ubicación</div>
                         <div class="map-controls">
-                            <button class="map-btn" onclick="changeMapView(this, 'tapichalaca', 'satellite')">Satélite</button>
+                            <button class="map-btn"
+                                onclick="changeMapView(this, 'tapichalaca', 'satellite')">Satélite</button>
                             <button class="map-btn" onclick="changeMapView(this, 'tapichalaca', 'map')">Mapa</button>
-                            <button class="map-btn" onclick="changeMapView(this, 'tapichalaca', 'hybrid')">Híbrido</button>
+                            <button class="map-btn"
+                                onclick="changeMapView(this, 'tapichalaca', 'hybrid')">Híbrido</button>
                         </div>
                     </div>
 
@@ -1049,7 +1060,7 @@
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="expandedImg">
     </div>
-    
+
     <div class="responsive-indicator">
         <i class="fas fa-mobile-alt"></i> Modo Móvil Activado
     </div>
@@ -1067,7 +1078,7 @@
                     this.style.transform = 'translateY(0)';
                 });
             });
-            
+
             // Ocultar alerta después de 5 segundos
             setTimeout(() => {
                 document.querySelector('.update-alert').style.display = 'none';
@@ -1103,29 +1114,29 @@
         function changeMapView(btn, station, viewType) {
             const mapContainer = btn.closest('.map-container');
             const iframe = mapContainer.querySelector('iframe');
-            
+
             // Desactivar todos los botones
             const buttons = mapContainer.querySelectorAll('.map-btn');
             buttons.forEach(b => b.style.background = 'var(--primary)');
-            
+
             // Activar botón seleccionado
             btn.style.background = 'var(--primary-dark)';
-            
+
             // Coordenadas de las estaciones
             const stations = {
                 'puear': { lat: -4.03814885, lng: -79.18840381 },
                 'tapichalaca': { lat: -4.492375, lng: -79.132389 } // Coordenadas actualizadas
             };
-            
+
             // Parámetro para vista
             let tParam = 'k'; // Satélite por defecto
             if (viewType === 'map') tParam = 'm';
             if (viewType === 'hybrid') tParam = 'h';
-            
+
             // Actualizar iframe
             iframe.src = `https://maps.google.com/maps?q=${stations[station].lat},${stations[station].lng}&z=15&output=embed&t=${tParam}&markers=color:blue|label:${station.charAt(0).toUpperCase()}|${stations[station].lat},${stations[station].lng}`;
         }
-        
+
         // Detectar orientación de pantalla
         function detectOrientation() {
             if (window.innerHeight > window.innerWidth) {
@@ -1134,7 +1145,7 @@
                 document.querySelector('.responsive-indicator').innerHTML = '<i class="fas fa-mobile-alt"></i> Modo Horizontal';
             }
         }
-        
+
         window.addEventListener('resize', detectOrientation);
         detectOrientation();
     </script>
