@@ -15,6 +15,7 @@
             --secondary: #0066a1;
             --light: #f8f9fa;
             --dark: #333;
+            --content-color: #555;
             --station-color: #003366;
             --background: #f0f4f8;
             --card-bg: rgba(255, 255, 255, 0.97);
@@ -37,7 +38,7 @@
         body {
             background: var(--background);
             font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
-            color: var(--dark);
+            color: var(--content-color);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -234,7 +235,7 @@
         }
 
         .station-description {
-            color: var(--secondary);
+            color: var(--content-color);
             line-height: 1.5;
             margin-bottom: 15px;
             font-size: 0.9rem;
@@ -270,7 +271,7 @@
 
         .info-content p {
             font-size: 0.85rem;
-            color: var(--secondary);
+            color: var(--content-color);
         }
 
         .parameters {
@@ -542,14 +543,15 @@
             }
         }
 
+        /* ================= RESPONSIVE DESIGN ================= */
         @media (max-width: 1100px) {
             .main-content {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 30px;
             }
-
+            
             .station-section {
-                gap: 15px;
+                gap: 25px;
             }
         }
 
@@ -558,46 +560,169 @@
                 grid-template-columns: 1fr;
                 height: auto;
             }
-
-            .map-container,
+            
+            .map-container, 
             .photo-container {
-                height: 200px;
+                height: 250px;
             }
         }
 
         @media (max-width: 768px) {
+            /* Header adjustments */
             .header-section {
                 flex-direction: column;
-                padding: 10px 0;
-                gap: 12px;
-            }
-
-            .title-container {
+                padding: 15px 0;
+                gap: 15px;
                 text-align: center;
-                padding-right: 0;
             }
-
+            
+            .title-container {
+                padding-right: 0;
+                padding: 0 15px;
+            }
+            
             .logos-container {
                 width: 100%;
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
             }
-
+            
+            /* Reduce logo sizes on mobile */
+            :root {
+                --logo-unl-height: 80px;
+                --logo-citiab-height: 120px;
+                --logo-third-height: 100px;
+            }
+            
+            /* Station card adjustments */
+            .station-card {
+                padding: 15px;
+            }
+            
             .station-info-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .card-header {
                 flex-direction: column;
                 text-align: center;
+                align-items: center;
             }
-
+            
             .station-icon {
                 margin-right: 0;
-                margin-bottom: 12px;
+                margin-bottom: 15px;
             }
+            
+            .status-indicator {
+                justify-content: center;
+            }
+            
+            .station-description {
+                text-align: center;
+            }
+            
+            /* Map controls */
+            .map-controls {
+                top: 5px;
+                right: 5px;
+                padding: 3px;
+            }
+            
+            .map-btn {
+                padding: 3px 6px;
+                font-size: 0.6rem;
+            }
+        }
 
+        @media (max-width: 480px) {
+            /* Adjustments for very small screens */
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .station-name {
+                font-size: 1.2rem;
+            }
+            
+            .station-description {
+                font-size: 0.85rem;
+            }
+            
+            /* Improve parameter display */
+            .parameter-list {
+                justify-content: center;
+            }
+            
+            .parameter {
+                padding: 4px 10px;
+            }
+            
+            /* Footer adjustments */
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer {
+                padding: 15px 10px;
+            }
+            
+            .footer-title {
+                font-size: 1rem;
+            }
+            
+            .credits {
+                font-size: 0.8rem;
+            }
+            
+            /* Modal adjustments */
             .modal-content {
                 width: 95%;
+            }
+            
+            .close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+            }
+        }
+
+        /* Responsive indicator animation */
+        .responsive-indicator {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 51, 102, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .responsive-indicator {
+                display: block;
+                animation: slideIn 0.5s ease-out;
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
             }
         }
     </style>
@@ -608,7 +733,7 @@
         <header class="header-section">
             <div class="title-container">
                 <h1>Visor Meteorológico CITIAB</h1>
-                <div class="subtitle">Monitoreo de variables climaticas en tiempo real</div>
+                <div class="subtitle">Monitoreo de variables climáticas en tiempo real</div>
             </div>
 
             <div class="logos-container">
@@ -669,21 +794,7 @@
                                 <p>2469 msnm</p>
                             </div>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-calendar-alt info-icon"></i>
-                            <div class="info-content">
-                                <h4>Inicio de operaciones</h4>
-                                <p>Junio 2025</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-sync-alt info-icon"></i>
-                            <div class="info-content">
-                                <h4>Frecuencia de datos</h4>
-                                <p>Cada minuto</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
+                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4>Latitud</h4>
@@ -695,6 +806,20 @@
                             <div class="info-content">
                                 <h4>Longitud</h4>
                                 <p>79.18840381 W</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Inicio de transmisión</h4>
+                                <p>Junio 2025</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-sync-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Frecuencia de datos</h4>
+                                <p>Cada minuto</p>
                             </div>
                         </div>
                     </div>
@@ -777,21 +902,7 @@
                                 <p>2646 msnm</p>
                             </div>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-calendar-alt info-icon"></i>
-                            <div class="info-content">
-                                <h4>Inicio de operaciones</h4>
-                                <p>Julio 2025</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-sync-alt info-icon"></i>
-                            <div class="info-content">
-                                <h4>Frecuencia de datos</h4>
-                                <p>Cada minuto</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
+                          <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4>Latitud</h4>
@@ -805,6 +916,20 @@
                                 <p>707214.55</p>
                             </div>
                         </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Inicio de transmisión</h4>
+                                <p>Julio 2025</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-sync-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Frecuencia de datos</h4>
+                                <p>Cada minuto</p>
+                            </div>
+                        </div>                   
                     </div>
 
                     <div class="parameters">
@@ -884,6 +1009,10 @@
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="expandedImg">
     </div>
+    
+    <div class="responsive-indicator">
+        <i class="fas fa-mobile-alt"></i> Modo Móvil Activado
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -951,6 +1080,18 @@
             // Actualizar iframe
             iframe.src = `https://maps.google.com/maps?q=${stations[station].lat},${stations[station].lng}&z=15&output=embed&t=${tParam}&markers=color:blue|label:${station.charAt(0).toUpperCase()}|${stations[station].lat},${stations[station].lng}`;
         }
+        
+        // Detectar orientación de pantalla
+        function detectOrientation() {
+            if (window.innerHeight > window.innerWidth) {
+                document.querySelector('.responsive-indicator').innerHTML = '<i class="fas fa-mobile-alt"></i> Modo Vertical';
+            } else {
+                document.querySelector('.responsive-indicator').innerHTML = '<i class="fas fa-mobile-alt"></i> Modo Horizontal';
+            }
+        }
+        
+        window.addEventListener('resize', detectOrientation);
+        detectOrientation();
     </script>
 </body>
 
