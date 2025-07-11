@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Investigaciones Tropicales del Ambiente y Biodiversidad (CITIAB)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --primary-dark: #1a252f;
+            --secondary: #7f8c8d;
+            --light: #f8f9fa;
+            --dark: #333;
+            --success: #3498db;
+            --info: #95a5a6;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --border-radius: 10px;
+            --card-accent: #333;
+            --background: #f8f6f2;
+            --puear-color: #3498db;
+            --tapichalca-color: #2ecc71;
+            --research-bg: #e8f4f8;
+            
+            /* Variables para los tamaños de logos */
+            --logo-unl-height: 80px; /* Altura del logo UNL */
+            --logo-citiab-height: 120px; /* Altura del logo CITIAB */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--background);
+            font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(to bottom, #f5f3ef, #f8f6f2);
+            padding: 20px;
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .logo {
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Aplicar las variables de tamaño a los logos específicos */
+        #unl-logo {
+            height: var(--logo-unl-height);
+        }
+
+        #citiab-logo {
+            height: var(--logo-citiab-height);
+        }
+
+        .title-container {
+            text-align: center;
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .selection-header {
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .selection-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .selection-subtitle {
+            font-size: 1.05rem;
+            color: var(--secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stations-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+        }
+
+        .station-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px 25px;
+            text-align: center;
+            width: 100%;
+            max-width: 480px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .station-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--puear-color);
+            transition: height 0.3s ease;
+        }
+
+        .station-card.tapichalca::before {
+            background: var(--tapichalca-color);
+        }
+
+        .station-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .station-card:hover::before {
+            height: 8px;
+        }
+
+        .station-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            color: var(--puear-color);
+        }
+
+        .station-card.tapichalca .station-icon {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--tapichalca-color);
+        }
+
+        .station-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .station-description {
+            color: var(--secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .station-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            color: var(--puear-color);
+            font-size: 1.1rem;
+            min-width: 22px;
+            margin-top: 3px;
+        }
+
+        .station-card.tapichalca .info-icon {
+            color: var(--tapichalca-color);
+        }
+
+        .info-content h4 {
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+        }
+
+        .info-content p {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .parameters {
+            width: 100%;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .parameters h3 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+            font-size: 1.15rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 7px;
+        }
+
+        .parameter-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .parameter {
+            background: rgba(0, 0, 0, 0.03);
+            padding: 5px 10px;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-station {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 11px 26px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-station::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-station:hover::before {
+            opacity: 1;
+        }
+
+        .btn-station:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-puear {
+            background: linear-gradient(135deg, var(--puear-color) 0%, #2980b9 100%);
+        }
+
+        .btn-puear::before {
+            background: linear-gradient(135deg, #2980b9 0%, var(--puear-color) 100%);
+        }
+
+        .btn-tapichalca {
+            background: linear-gradient(135deg, var(--tapichalca-color) 0%, #27ae60 100%);
+        }
+
+        .btn-tapichalca::before {
+            background: linear-gradient(135deg, #27ae60 0%, var(--tapichalca-color) 100%);
+        }
+
+        .research-section {
+            background: var(--research-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 3px;
+            background: var(--puear-color);
+            border-radius: 3px;
+        }
+
+        .research-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .research-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-icon {
+            font-size: 2.3rem;
+            color: var(--puear-color);
+            margin-bottom: 18px;
+        }
+
+        .research-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .research-description {
+            color: var(--secondary);
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+        }
+
+        .research-link {
+            color: var(--puear-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .research-link:hover {
+            color: var(--primary-dark);
+            gap: 8px;
+        }
+
+        .footer {
+            background: var(--primary);
+            color: var(--light);
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .footer-section {
+            padding: 0 12px;
+        }
+
+        .footer-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: white;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            height: 2px;
+            background: var(--puear-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            font-size: 0.95rem;
+        }
+
+        .contact-icon {
+            color: var(--puear-color);
+            font-size: 1rem;
+            min-width: 22px;
+            margin-top: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--puear-color);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            margin-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 900px) {
+            .stations-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-section {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .logo-container {
+                margin: 10px 0;
+            }
+
+            :root {
+                --logo-unl-height: 70px; /* Tamaño para móviles */
+                --logo-citiab-height: 70px; /* Tamaño para móviles */
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .station-card {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .station-icon {
+                width: 75px;
+                height: 75px;
+                font-size: 1.8rem;
+            }
+
+            .station-name {
+                font-size: 1.4rem;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .selection-title {
+                font-size: 1.5rem;
+            }
+
+            .station-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .research-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.04);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .highlight-box {
+            background: rgba(52, 152, 219, 0.05);
+            border-left: 4px solid var(--puear-color);
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .station-card.tapichalca .highlight-box {
+            background: rgba(46, 204, 113, 0.05);
+            border-left: 4px solid var(--tapichalca-color);
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+
+        .status-online {
+            background: rgba(46, 204, 113, 0.1);
+            color: #27ae60;
+        }
+
+        .status-offline {
+            background: rgba(231, 76, 60, 0.1);
+            color: #c0392b;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-online .status-dot {
+            background: #27ae60;
+        }
+
+        .status-offline .status-dot {
+            background: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="header-section">
+            <div class="logo-container">
+                <img src="https://joinforwater.ngo/wp-content/uploads/2022/05/logo-unl-HC-01-e1651758359420.png"
+                    class="logo" alt="Logo UNL" id="unl-logo">
+            </div>
+
+            <div class="title-container">
+                <h1>Visor Meteorológico (CITIAB)</h1>
+                <div class="subtitle">Monitoreo científico para la comprensión del clima andino</div>
+            </div>
+
+            <div class="logo-container">
+                <img src="https://unl.edu.ec/sites/default/files/inline-images/logo%20citiab%202%20%281%29.png"
+                    class="logo" alt="Logo CITIAB" id="citiab-logo">
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="selection-header">
+                <h2 class="selection-title">Seleccione la estación meteorológica</h2>
+                <p class="selection-subtitle">Explore los datos en tiempo real de nuestras estaciones de monitoreo
+                    ubicadas en diferentes ecosistemas</p>
+            </div>
+
+            <div class="stations-container">
+                <div class="station-card">
+                    <div class="station-icon floating">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3 class="station-name">Estación Puear</h3>
+
+                    <div class="status-indicator status-online">
+                        <span class="status-dot"></span>
+                        En línea - Datos actualizados
+                    </div>
+
+                    <p class="station-description">
+                        La estación meteorológica del PUEAR, ubicada en Loja, Ecuador, a 3200 msnm en la Cordillera
+                        Central, recopila datos climáticos de alta montaña en tiempo real, fundamentales para el estudio
+                        de ecosistemas andinos y el monitoreo del cambio climático en el sur del país.
+                    </p>
+
+                    <div class="station-info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Ubicación</h4>
+                                <p>Sector Puear, Cordillera Central</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-mountain info-icon"></i>
+                            <div class="info-content">
+                                <h4>Altitud</h4>
+                                <p>3200 metros sobre el nivel del mar</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Transmitiendo desde</h4>
+                                <p>Junio 2025</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-sync-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Actualización</h4>
+                                <p>Datos cada minuto</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="parameters">
+                        <h3>Parámetros medidos</h3>
+                        <div class="parameter-list">
+                            <span class="parameter">Temperatura del aire</span>
+                            <span class="parameter">Humedad relativa</span>
+                            <span class="parameter">Precipitación</span>
+                            <span class="parameter">Radiación solar</span>
+                        </div>
+                    </div>
+
+                    <a href="https://web-puear.vercel.app/" class="btn-station btn-puear pulse">
+                        <i class="fas fa-chart-line"></i> Acceder a datos de Puear
+                    </a>
+                </div>
+
+                <div class="station-card tapichalca">
+                    <div class="station-icon floating">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="station-name">Estación Tapichalaca</h3>
+
+                    <div class="status-indicator status-online">
+                        <span class="status-dot"></span>
+                        En línea - Datos actualizados
+                    </div>
+
+                    <p class="station-description">
+                        La Reserva Tapichalaca, de la Fundación Jocotoco, protege 3 925 ha de bosque montano y páramo en
+                        Palanda, y es hábitat de la endémica Grallaria ridgelyi, descubierta por el ornitólogo Robert
+                        Ridgely. 
+                    </p>
+
+                    <div class="station-info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt info-icon"></i>
+                            <div class="info-content">
+                                
+                                <h4>Ubicación</h4>
+                                <p>Reserva Natural Tapichalca</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-mountain info-icon"></i>
+                            <div class="info-content">
+                                <h4>Altitud</h4>
+                                <p>2800 metros sobre el nivel del mar</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Transmitiendo desde</h4>
+                                <p>Julio 2025</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-sync-alt info-icon"></i>
+                            <div class="info-content">
+                                <h4>Actualización</h4>
+                                <p>Datos cada minuto</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="parameters">
+                        <h3>Parámetros medidos</h3>
+                        <div class="parameter-list">
+                            <span class="parameter">Temperatura del aire</span>
+                            <span class="parameter">Humedad relativa</span>
+                            <span class="parameter">Precipitación</span>
+                            <span class="parameter">Radiación solar</span>
+                        </div>
+                    </div>
+
+                    <a href="#" id="tapichalca-link" class="btn-station btn-tapichalca">
+                        <i class="fas fa-chart-line"></i> Acceder a datos de Tapichalca
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Centro de Investigaciones Tropicales del Ambiente y Biodiversidad (CITIAB)
+                    </h3>
+                    <p style="color: #e0e0e0; line-height: 1.6; margin-bottom: 20px; font-size: 0.95rem;">
+                        El Centro de Investigaciones Tropicales del Ambiente y Biodiversidad (CITIAB), surge con la
+                        finalidad de investigar temáticas sobre biodiversidad, restauración de paisajes, servicios
+                        ecosistémicos, hidrología, cambio climático, con el objetivo de generar conocimiento que
+                        beneficie a la sociedad, así como construir escenarios para el mejoramiento de los procesos de
+                        enseñanza de pre y post grado en la Universidad Nacional de Loja.
+                    </p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>Ciudad Universitaria Guillermo Falconí - Loja - Ecuador</div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>07 2593550 (Opción 1 - Modalidad Presencial)</div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>07 2593550 (Opción 2 - Modalidad Distancia)</div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>comunicacion@unl.edu.ec</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2025 Centro de Investigaciones Tropicales del Ambiente y Biodiversidad (CITIAB) - Universidad
+                Nacional de Loja. Todos los derechos reservados.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Efecto hover para las tarjetas
+            const cards = document.querySelectorAll('.station-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-12px)';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+                });
+            });
+
+            // Mensaje para Tapichalca (hasta que tengas el enlace)
+            document.getElementById('tapichalca-link').addEventListener('click', function (e) {
+                e.preventDefault();
+                alert('La página para la estación Tapichalca estará disponible próximamente. Estamos trabajando para integrar todos los datos.');
+            });
+        });
+    </script>
+</body>
+
+</html>
