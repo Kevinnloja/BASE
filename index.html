@@ -913,49 +913,49 @@
                             <i class="fas fa-map-marker-alt info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-location">Ubicación</h4>
-                                <p>Sector PUFVC </p>
+                                <p id="station1-location">Sector PUFVC</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-mountain info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-altitude">Altitud</h4>
-                                <p>2469 msnm</p>
+                                <p id="station1-altitude">2469 msnm</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-latitude">Latitud</h4>
-                                <p>4°02'17.3"S</p>
+                                <p id="station1-latitude">4°02'17.3"S</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-longitude">Longitud</h4>
-                                <p>79°11'18.3"W</p>
+                                <p id="station1-longitude">79°11'18.3"W</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-calendar-alt info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-start">Inicio de transmisión</h4>
-                                <p>Junio 2025</p>
+                                <p id="station1-start">Junio 2025</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-sync-alt info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-frequency">Frecuencia de datos</h4>
-                                <p>Cada minuto</p>
+                                <p id="station1-frequency">Cada minuto</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="parameters">
                         <h3 id="parameters-title">Parámetros medidos</h3>
-                        <div class="parameter-list">
+                        <div class="parameter-list" id="station1-parameters">
                             <span class="parameter">Temperatura del aire</span>
                             <span class="parameter">Humedad relativa</span>
                             <span class="parameter">Precipitación</span>
@@ -1027,49 +1027,49 @@
                             <i class="fas fa-map-marker-alt info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-location2">Ubicación</h4>
-                                <p>Cantón Palanda en la reserva Tapichalaca</p>
+                                <p id="station2-location">Cantón Palanda en la reserva Tapichalaca</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-mountain info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-altitude2">Altitud</h4>
-                                <p>2646 msnm</p>
+                                <p id="station2-altitude">2646 msnm</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-latitude2">Latitud</h4>
-                                <p>4°29'32.6"S</p>
+                                <p id="station2-latitude">4°29'32.6"S</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-longitude2">Longitud</h4>
-                                <p>79°07'56.6"W</p>
+                                <p id="station2-longitude">79°07'56.6"W</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-calendar-alt info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-start2">Inicio de transmisión</h4>
-                                <p>Julio 2025</p>
+                                <p id="station2-start">Julio 2025</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-sync-alt info-icon"></i>
                             <div class="info-content">
                                 <h4 id="info-frequency2">Frecuencia de datos</h4>
-                                <p>Cada minuto</p>
+                                <p id="station2-frequency">Cada minuto</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="parameters">
                         <h3 id="parameters-title2">Parámetros medidos</h3>
-                        <div class="parameter-list">
+                        <div class="parameter-list" id="station2-parameters">
                             <span class="parameter">Temperatura del aire</span>
                             <span class="parameter">Humedad relativa</span>
                             <span class="parameter">Precipitación</span>
@@ -1186,7 +1186,24 @@
                 footerDesc: "Investigamos biodiversidad, restauración de paisajes, servicios ecosistémicos, hidrología y cambio climático para contribuir al conocimiento científico y la conservación ambiental.",
                 footerCredits: "Desarrollado por el Ing. Kevin David Loja Sarmiento en colaboración del Mgs. Juan Dario Quinde y el Centro de Investigación CITIAB",
                 footerCopyright: "&copy; 2025 CITIAB - Universidad Nacional de Loja. Todos los derechos reservados.",
-                langText: "ES"
+                langText: "ES",
+                
+                // Traducciones adicionales
+                station1Location: "Sector PUFVC",
+                station1Altitude: "2469 msnm",
+                station1Latitude: "4°02'17.3\"S",
+                station1Longitude: "79°11'18.3\"W",
+                station1Start: "Junio 2025",
+                station1Frequency: "Cada minuto",
+                station1Parameters: ["Temperatura del aire", "Humedad relativa", "Precipitación", "Radiación solar"],
+                
+                station2Location: "Cantón Palanda en la reserva Tapichalaca",
+                station2Altitude: "2646 msnm",
+                station2Latitude: "4°29'32.6\"S",
+                station2Longitude: "79°07'56.6\"W",
+                station2Start: "Julio 2025",
+                station2Frequency: "Cada minuto",
+                station2Parameters: ["Temperatura del aire", "Humedad relativa", "Precipitación", "Radiación solar"]
             },
             en: {
                 title: "CITIAB Weather Viewer",
@@ -1216,7 +1233,24 @@
                 footerDesc: "We research biodiversity, landscape restoration, ecosystem services, hydrology, and climate change to contribute to scientific knowledge and environmental conservation.",
                 footerCredits: "Developed by Eng. Kevin David Loja Sarmiento in collaboration with Mgs. Juan Dario Quinde and the CITIAB Research Center",
                 footerCopyright: "&copy; 2025 CITIAB - National University of Loja. All rights reserved.",
-                langText: "EN"
+                langText: "EN",
+                
+                // Traducciones adicionales
+                station1Location: "PUFVC Sector",
+                station1Altitude: "2469 masl",
+                station1Latitude: "4°02'17.3\"S",
+                station1Longitude: "79°11'18.3\"W",
+                station1Start: "June 2025",
+                station1Frequency: "Every minute",
+                station1Parameters: ["Air temperature", "Relative humidity", "Precipitation", "Solar radiation"],
+                
+                station2Location: "Palanda Canton in the Tapichalaca reserve",
+                station2Altitude: "2646 masl",
+                station2Latitude: "4°29'32.6\"S",
+                station2Longitude: "79°07'56.6\"W",
+                station2Start: "July 2025",
+                station2Frequency: "Every minute",
+                station2Parameters: ["Air temperature", "Relative humidity", "Precipitation", "Solar radiation"]
             }
         };
 
@@ -1269,6 +1303,38 @@
             document.getElementById('footer-copyright').innerHTML = translations[currentLang].footerCopyright;
             document.getElementById('lang-text').textContent = translations[currentLang].langText;
             document.getElementById('lang-text-mobile').textContent = translations[currentLang].langText;
+            
+            // Actualizar detalles específicos de la estación 1
+            document.getElementById('station1-location').textContent = translations[currentLang].station1Location;
+            document.getElementById('station1-altitude').textContent = translations[currentLang].station1Altitude;
+            document.getElementById('station1-latitude').textContent = translations[currentLang].station1Latitude;
+            document.getElementById('station1-longitude').textContent = translations[currentLang].station1Longitude;
+            document.getElementById('station1-start').textContent = translations[currentLang].station1Start;
+            document.getElementById('station1-frequency').textContent = translations[currentLang].station1Frequency;
+            
+            // Actualizar detalles específicos de la estación 2
+            document.getElementById('station2-location').textContent = translations[currentLang].station2Location;
+            document.getElementById('station2-altitude').textContent = translations[currentLang].station2Altitude;
+            document.getElementById('station2-latitude').textContent = translations[currentLang].station2Latitude;
+            document.getElementById('station2-longitude').textContent = translations[currentLang].station2Longitude;
+            document.getElementById('station2-start').textContent = translations[currentLang].station2Start;
+            document.getElementById('station2-frequency').textContent = translations[currentLang].station2Frequency;
+            
+            // Actualizar parámetros medidos
+            updateParameters('station1-parameters', translations[currentLang].station1Parameters);
+            updateParameters('station2-parameters', translations[currentLang].station2Parameters);
+        }
+        
+        function updateParameters(containerId, parameters) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            parameters.forEach(param => {
+                const span = document.createElement('span');
+                span.className = 'parameter';
+                span.textContent = param;
+                container.appendChild(span);
+            });
         }
 
         document.addEventListener('DOMContentLoaded', function () {
