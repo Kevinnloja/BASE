@@ -63,6 +63,7 @@
             padding: 10px 0;
             margin-bottom: 15px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
         .title-container {
@@ -572,6 +573,46 @@
             }
         }
 
+        /* ================= IDIOMA - POSICIONAMIENTO MEJORADO ================= */
+        .language-switcher {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lang {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 60px;
+            justify-content: center;
+        }
+
+        .btn-lang:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-lang i {
+            font-size: 1.1rem;
+        }
+
+        .lang-text-mobile {
+            display: none;
+        }
+
         /* ================= RESPONSIVE DESIGN ================= */
         @media (max-width: 1100px) {
             .main-content {
@@ -670,6 +711,25 @@
                 padding: 10px 15px;
                 font-size: 0.9rem;
             }
+
+            /* Mobile language button */
+            .language-switcher {
+                top: 15px;
+                right: 15px;
+            }
+
+            .btn-lang {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .lang-text-desktop {
+                display: none;
+            }
+
+            .lang-text-mobile {
+                display: inline;
+            }
         }
 
         @media (max-width: 480px) {
@@ -735,6 +795,18 @@
                 padding: 8px 12px;
                 font-size: 0.8rem;
             }
+
+            /* Mobile language button */
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
+
+            .btn-lang {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+                min-width: 50px;
+            }
         }
 
         /* Responsive indicator animation */
@@ -774,11 +846,21 @@
 </head>
 
 <body>
+    <!-- Botón de traducción en posición fija -->
+    <div class="language-switcher">
+        <button id="languageButton" class="btn-lang">
+            <i class="fas fa-globe"></i>
+            <span id="lang-text" class="lang-text-desktop">ES</span>
+            <span id="lang-text-mobile" class="lang-text-mobile"></span>
+        </button>
+        <br>
+    </div>
+       
     <div class="app-container">
         <header class="header-section">
             <div class="title-container">
-                <h1>Visor Meteorológico CITIAB</h1>
-                <div class="subtitle">Monitoreo de variables meteorológicas en tiempo real</div>
+                <h1 id="page-title">Visor Meteorológico CITIAB</h1>
+                <div class="subtitle" id="page-subtitle">Monitoreo de variables meteorológicas en tiempo real</div>
             </div>
 
             <div class="logos-container">
@@ -800,7 +882,8 @@
         <main class="main-content">
             <section class="station-section">
                 <div class="section-title-container">
-                    <h2 class="section-title">Estación Parque Universitario Francisco Vivar Castro</h2>
+                    <h2 class="section-title" id="station1-title">Estación Parque Universitario Francisco Vivar Castro
+                    </h2>
                 </div>
 
                 <div class="station-card">
@@ -809,15 +892,15 @@
                             <i class="fas fa-mountain"></i>
                         </div>
                         <div class="station-info">
-                            <h3 class="station-name">Ecosistema: Matorral Andino</h3>
+                            <h3 class="station-name" id="station1-name">Ecosistema: Matorral Andino</h3>
                             <div class="status-indicator status-online">
                                 <span class="status-dot"></span>
-                                En línea - Datos actualizados
+                                <span id="station1-status">En línea - Datos actualizados</span>
                             </div>
                         </div>
                     </div>
 
-                    <p class="station-description">
+                    <p class="station-description" id="station1-desc">
                         La estación meteorológica del Parque Universitario Francisco Vivar Castro (PUFVC) de la
                         Universidad Nacional de Loja (UNL) está equipada con sensores de alta precisión y cumple con los
                         estándares establecidos por la Organización Meteorológica Mundial (OMM). Su localización
@@ -829,49 +912,49 @@
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt info-icon"></i>
                             <div class="info-content">
-                                <h4>Ubicación</h4>
+                                <h4 id="info-location">Ubicación</h4>
                                 <p>Sector PUFVC </p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-mountain info-icon"></i>
                             <div class="info-content">
-                                <h4>Altitud</h4>
+                                <h4 id="info-altitude">Altitud</h4>
                                 <p>2469 msnm</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
-                                <h4>Latitud</h4>
+                                <h4 id="info-latitude">Latitud</h4>
                                 <p>4°02'17.3"S</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
-                                <h4>Longitud</h4>
+                                <h4 id="info-longitude">Longitud</h4>
                                 <p>79°11'18.3"W</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-calendar-alt info-icon"></i>
                             <div class="info-content">
-                                <h4>Inicio de transmisión</h4>
+                                <h4 id="info-start">Inicio de transmisión</h4>
                                 <p>Junio 2025</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-sync-alt info-icon"></i>
                             <div class="info-content">
-                                <h4>Frecuencia de datos</h4>
+                                <h4 id="info-frequency">Frecuencia de datos</h4>
                                 <p>Cada minuto</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="parameters">
-                        <h3>Parámetros medidos</h3>
+                        <h3 id="parameters-title">Parámetros medidos</h3>
                         <div class="parameter-list">
                             <span class="parameter">Temperatura del aire</span>
                             <span class="parameter">Humedad relativa</span>
@@ -880,38 +963,39 @@
                         </div>
                     </div>
 
-                    <!-- Modificación: Agregado target="_blank" para abrir en nueva pestaña -->
                     <a href="https://web-puear.vercel.app/" class="btn-station" target="_blank">
-                        <i class="fas fa-chart-line"></i> Ver datos en tiempo real
+                        <i class="fas fa-chart-line"></i> <span id="view-data">Ver datos en tiempo real</span>
                     </a>
                 </div>
 
                 <div class="visual-section">
                     <div class="map-container">
-                        <!-- Vista satelital por defecto: parámetro t=k -->
                         <iframe
                             src="https://maps.google.com/maps?q=-4.03814885,-79.18840381&z=15&output=embed&t=k&markers=color:blue|label:P|-4.03814885,-79.18840381"></iframe>
-                        <div class="visual-label">Vista satelital de la ubicación</div>
+                        <div class="visual-label" id="satellite-view">Vista satelital de la ubicación</div>
                         <div class="map-controls">
-                            <button class="map-btn"
-                                onclick="changeMapView(this, 'puear', 'satellite')">Satélite</button>
-                            <button class="map-btn" onclick="changeMapView(this, 'puear', 'map')">Mapa</button>
-                            <button class="map-btn" onclick="changeMapView(this, 'puear', 'hybrid')">Híbrido</button>
+                            <button class="map-btn" onclick="changeMapView(this, 'puear', 'satellite')">
+                                <span id="btn-satellite">Satélite</span>
+                            </button>
+                            <button class="map-btn" onclick="changeMapView(this, 'puear', 'map')">
+                                <span id="btn-map">Mapa</span>
+                            </button>
+                            <button class="map-btn" onclick="changeMapView(this, 'puear', 'hybrid')">
+                                <span id="btn-hybrid">Híbrido</span>
+                            </button>
                         </div>
                     </div>
 
-                    <div class="photo-container"
-                        onclick="openModal('https://i.ibb.co/3mKFTvM8/PUEAR.png')">
-                        <img src="https://i.ibb.co/3mKFTvM8/PUEAR.png"
-                            alt="Estación PUFVC">
-                        <div class="visual-label">Vista de la estación meteorológica</div>
+                    <div class="photo-container" onclick="openModal('https://i.ibb.co/3mKFTvM8/PUEAR.png')">
+                        <img src="https://i.ibb.co/3mKFTvM8/PUEAR.png" alt="Estación PUFVC">
+                        <div class="visual-label" id="station-view">Vista de la estación meteorológica</div>
                     </div>
                 </div>
             </section>
 
             <section class="station-section">
                 <div class="section-title-container">
-                    <h2 class="section-title">Estación Tapichalaca</h2>
+                    <h2 class="section-title" id="station2-title">Estación Tapichalaca</h2>
                 </div>
 
                 <div class="station-card">
@@ -920,71 +1004,71 @@
                             <i class="fas fa-tree"></i>
                         </div>
                         <div class="station-info">
-                            <h3 class="station-name">
+                            <h3 class="station-name" id="station2-name">
                                 Ecosistema: Bosque Siempre Verde Montano
                             </h3>
                             <div class="status-indicator status-online">
                                 <span class="status-dot"></span>
-                                En línea - Datos actualizados
+                                <span id="station2-status">En línea - Datos actualizados</span>
                             </div>
                         </div>
                     </div>
 
-                    <p class="station-description">
+                    <p class="station-description" id="station2-desc">
                         La estación meteorológica ubicada en la Reserva Tapichalaca de la Fundación Jocotoco, en Zamora
                         Chinchipe, es gestionada por la Universidad Nacional de Loja (UNL) a través del CITIAB. Fue
                         implementada en el marco del proyecto CUIDAR y está equipada con sensores de alta precisión que
                         cumplen con los estándares establecidos por la Organización Meteorológica Mundial (OMM), además
-                        de un sistema de transmisión de datos en tiempo real mediante conectividad WiFi. 
+                        de un sistema de transmisión de datos en tiempo real mediante conectividad WiFi.
                     </p>
 
                     <div class="station-info-grid">
                         <div class="info-item">
                             <i class="fas fa-map-marker-alt info-icon"></i>
                             <div class="info-content">
-                                <h4>Ubicación</h4>
+                                <h4 id="info-location2">Ubicación</h4>
                                 <p>Cantón Palanda en la reserva Tapichalaca</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-mountain info-icon"></i>
                             <div class="info-content">
-                                <h4>Altitud</h4>
+                                <h4 id="info-altitude2">Altitud</h4>
                                 <p>2646 msnm</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
-                                <h4>Latitud</h4>
+                                <h4 id="info-latitude2">Latitud</h4>
                                 <p>4°29'32.6"S</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-map info-icon"></i>
                             <div class="info-content">
-                                <h4>Longitud</h4>
+                                <h4 id="info-longitude2">Longitud</h4>
                                 <p>79°07'56.6"W</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-calendar-alt info-icon"></i>
                             <div class="info-content">
-                                <h4>Inicio de transmisión</h4>
+                                <h4 id="info-start2">Inicio de transmisión</h4>
                                 <p>Julio 2025</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="fas fa-sync-alt info-icon"></i>
                             <div class="info-content">
-                                <h4>Frecuencia de datos</h4>
+                                <h4 id="info-frequency2">Frecuencia de datos</h4>
                                 <p>Cada minuto</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="parameters">
-                        <h3>Parámetros medidos</h3>
+                        <h3 id="parameters-title2">Parámetros medidos</h3>
                         <div class="parameter-list">
                             <span class="parameter">Temperatura del aire</span>
                             <span class="parameter">Humedad relativa</span>
@@ -993,32 +1077,34 @@
                         </div>
                     </div>
 
-                    <!-- Modificación: Agregado target="_blank" para abrir en nueva pestaña -->
                     <a href="https://web-tapichalaca.vercel.app/" class="btn-station" target="_blank">
-                        <i class="fas fa-chart-line"></i> Ver datos en tiempo real
+                        <i class="fas fa-chart-line"></i> <span id="view-data2">Ver datos en tiempo real</span>
                     </a>
                 </div>
 
                 <div class="visual-section">
                     <div class="map-container">
-                        <!-- Vista satelital por defecto: parámetro t=k -->
                         <iframe
                             src="https://maps.google.com/maps?q=-4.492375,-79.132389&z=15&output=embed&t=k&markers=color:blue|label:T|-4.492375,-79.132389"></iframe>
-                        <div class="visual-label">Vista satelital de la ubicación</div>
+                        <div class="visual-label" id="satellite-view2">Vista satelital de la ubicación</div>
                         <div class="map-controls">
-                            <button class="map-btn"
-                                onclick="changeMapView(this, 'tapichalaca', 'satellite')">Satélite</button>
-                            <button class="map-btn" onclick="changeMapView(this, 'tapichalaca', 'map')">Mapa</button>
-                            <button class="map-btn"
-                                onclick="changeMapView(this, 'tapichalaca', 'hybrid')">Híbrido</button>
+                            <button class="map-btn" onclick="changeMapView(this, 'tapichalaca', 'satellite')">
+                                <span id="btn-satellite2">Satélite</span>
+                            </button>
+                            <button class="map-btn" onclick="changeMapView(this, 'tapichalaca', 'map')">
+                                <span id="btn-map2">Mapa</span>
+                            </button>
+                            <button class="map-btn" onclick="changeMapView(this, 'tapichalaca', 'hybrid')">
+                                <span id="btn-hybrid2">Híbrido</span>
+                            </button>
                         </div>
                     </div>
 
                     <div class="photo-container"
-                        onclick="openModal('https://i.ibb.co/b5yX0gxb/1000px-x1000px-Post-de-Facebook.pngg')">
+                        onclick="openModal('https://i.ibb.co/b5yX0gxb/1000px-x1000px-Post-de-Facebook.png')">
                         <img src="https://i.ibb.co/b5yX0gxb/1000px-x1000px-Post-de-Facebook.png"
                             alt="Estación Tapichalaca">
-                        <div class="visual-label">Vista de la estación meteorológica</div>
+                        <div class="visual-label" id="station-view2">Vista de la estación meteorológica</div>
                     </div>
                 </div>
             </section>
@@ -1026,8 +1112,9 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <h3 class="footer-title">Centro de Investigaciones Tropicales del Ambiente y Biodiversidad (CITIAB)</h3>
-                <p class="footer-description">
+                <h3 class="footer-title" id="footer-title">Centro de Investigaciones Tropicales del Ambiente y
+                    Biodiversidad (CITIAB)</h3>
+                <p class="footer-description" id="footer-desc">
                     Investigamos biodiversidad, restauración de paisajes, servicios ecosistémicos, hidrología y cambio
                     climático para contribuir al conocimiento científico y la conservación ambiental.
                 </p>
@@ -1035,7 +1122,7 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt contact-icon"></i>
-                        <span>Ciudad Universitaria Guillermo Falconí - Loja - Ecuador</span>
+                        <span id="footer-address">Ciudad Universitaria Guillermo Falconí - Loja - Ecuador</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone contact-icon"></i>
@@ -1047,12 +1134,12 @@
                     </div>
                 </div>
 
-                <div class="credits">
+                <div class="credits" id="footer-credits">
                     Desarrollado por el Ing. Kevin David Loja Sarmiento en colaboración del Mgs. Juan Dario Quinde y el
                     Centro de Investigación CITIAB
                 </div>
 
-                <div class="copyright">
+                <div class="copyright" id="footer-copyright">
                     &copy; 2025 CITIAB - Universidad Nacional de Loja. Todos los derechos reservados.
                 </div>
             </div>
@@ -1069,6 +1156,121 @@
     </div>
 
     <script>
+        // Sistema de traducción
+        const translations = {
+            es: {
+                title: "Visor Meteorológico CITIAB",
+                subtitle: "Monitoreo de variables meteorológicas en tiempo real",
+                station1Title: "Estación Parque Universitario Francisco Vivar Castro",
+                station1Name: "Ecosistema: Matorral Andino",
+                station1Status: "En línea - Datos actualizados",
+                station1Desc: "La estación meteorológica del Parque Universitario Francisco Vivar Castro (PUFVC) de la Universidad Nacional de Loja (UNL) está equipada con sensores de alta precisión y cumple con los estándares establecidos por la Organización Meteorológica Mundial (OMM). Su localización estratégica y operatividad continua, junto con el uso del sistema de transmisión LoRaWAN, son clave para la investigación climática y el monitoreo ambiental en el sur del Ecuador.",
+                location: "Ubicación",
+                altitude: "Altitud",
+                latitude: "Latitud",
+                longitude: "Longitud",
+                start: "Inicio de transmisión",
+                frequency: "Frecuencia de datos",
+                parameters: "Parámetros medidos",
+                viewData: "Ver datos en tiempo real",
+                satelliteView: "Vista satelital de la ubicación",
+                stationView: "Vista de la estación meteorológica",
+                satellite: "Satélite",
+                map: "Mapa",
+                hybrid: "Híbrido",
+                station2Title: "Estación Tapichalaca",
+                station2Name: "Ecosistema: Bosque Siempre Verde Montano",
+                station2Status: "En línea - Datos actualizados",
+                station2Desc: "La estación meteorológica ubicada en la Reserva Tapichalaca de la Fundación Jocotoco, en Zamora Chinchipe, es gestionada por la Universidad Nacional de Loja (UNL) a través del CITIAB. Fue implementada en el marco del proyecto CUIDAR y está equipada con sensores de alta precisión que cumplen con los estándares establecidos por la Organización Meteorológica Mundial (OMM), además de un sistema de transmisión de datos en tiempo real mediante conectividad WiFi.",
+                footerTitle: "Centro de Investigaciones Tropicales del Ambiente y Biodiversidad (CITIAB)",
+                footerDesc: "Investigamos biodiversidad, restauración de paisajes, servicios ecosistémicos, hidrología y cambio climático para contribuir al conocimiento científico y la conservación ambiental.",
+                footerCredits: "Desarrollado por el Ing. Kevin David Loja Sarmiento en colaboración del Mgs. Juan Dario Quinde y el Centro de Investigación CITIAB",
+                footerCopyright: "&copy; 2025 CITIAB - Universidad Nacional de Loja. Todos los derechos reservados.",
+                langText: "ES"
+            },
+            en: {
+                title: "CITIAB Weather Viewer",
+                subtitle: "Real-time meteorological variables monitoring",
+                station1Title: "Francisco Vivar Castro University Park Station",
+                station1Name: "Ecosystem: Andean Shrubland",
+                station1Status: "Online - Updated data",
+                station1Desc: "The meteorological station at the Francisco Vivar Castro University Park (PUFVC) of the National University of Loja (UNL) is equipped with high-precision sensors and complies with the standards established by the World Meteorological Organization (WMO). Its strategic location and continuous operation, along with the use of the LoRaWAN transmission system, are key for climate research and environmental monitoring in southern Ecuador.",
+                location: "Location",
+                altitude: "Altitude",
+                latitude: "Latitude",
+                longitude: "Longitude",
+                start: "Transmission start",
+                frequency: "Data frequency",
+                parameters: "Measured parameters",
+                viewData: "View real-time data",
+                satelliteView: "Satellite view of location",
+                stationView: "View of the weather station",
+                satellite: "Satellite",
+                map: "Map",
+                hybrid: "Hybrid",
+                station2Title: "Tapichalaca Station",
+                station2Name: "Ecosystem: Evergreen Montane Forest",
+                station2Status: "Online - Updated data",
+                station2Desc: "The meteorological station located in the Tapichalaca Reserve of the Jocotoco Foundation, in Zamora Chinchipe, is managed by the National University of Loja (UNL) through CITIAB. It was implemented within the framework of the CUIDAR project and is equipped with high-precision sensors that comply with the standards established by the World Meteorological Organization (WMO), in addition to a real-time data transmission system using WiFi connectivity.",
+                footerTitle: "Center for Tropical Research on Environment and Biodiversity (CITIAB)",
+                footerDesc: "We research biodiversity, landscape restoration, ecosystem services, hydrology, and climate change to contribute to scientific knowledge and environmental conservation.",
+                footerCredits: "Developed by Eng. Kevin David Loja Sarmiento in collaboration with Mgs. Juan Dario Quinde and the CITIAB Research Center",
+                footerCopyright: "&copy; 2025 CITIAB - National University of Loja. All rights reserved.",
+                langText: "EN"
+            }
+        };
+
+        let currentLang = 'es'; // Idioma por defecto
+
+        function changeLanguage() {
+            // Cambiar idioma
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+
+            // Actualizar textos
+            document.getElementById('page-title').textContent = translations[currentLang].title;
+            document.getElementById('page-subtitle').textContent = translations[currentLang].subtitle;
+            document.getElementById('station1-title').textContent = translations[currentLang].station1Title;
+            document.getElementById('station1-name').textContent = translations[currentLang].station1Name;
+            document.getElementById('station1-status').textContent = translations[currentLang].station1Status;
+            document.getElementById('station1-desc').textContent = translations[currentLang].station1Desc;
+            document.getElementById('info-location').textContent = translations[currentLang].location;
+            document.getElementById('info-altitude').textContent = translations[currentLang].altitude;
+            document.getElementById('info-latitude').textContent = translations[currentLang].latitude;
+            document.getElementById('info-longitude').textContent = translations[currentLang].longitude;
+            document.getElementById('info-start').textContent = translations[currentLang].start;
+            document.getElementById('info-frequency').textContent = translations[currentLang].frequency;
+            document.getElementById('parameters-title').textContent = translations[currentLang].parameters;
+            document.getElementById('view-data').textContent = translations[currentLang].viewData;
+            document.getElementById('satellite-view').textContent = translations[currentLang].satelliteView;
+            document.getElementById('station-view').textContent = translations[currentLang].stationView;
+            document.getElementById('btn-satellite').textContent = translations[currentLang].satellite;
+            document.getElementById('btn-map').textContent = translations[currentLang].map;
+            document.getElementById('btn-hybrid').textContent = translations[currentLang].hybrid;
+            document.getElementById('station2-title').textContent = translations[currentLang].station2Title;
+            document.getElementById('station2-name').textContent = translations[currentLang].station2Name;
+            document.getElementById('station2-status').textContent = translations[currentLang].station2Status;
+            document.getElementById('station2-desc').textContent = translations[currentLang].station2Desc;
+            document.getElementById('info-location2').textContent = translations[currentLang].location;
+            document.getElementById('info-altitude2').textContent = translations[currentLang].altitude;
+            document.getElementById('info-latitude2').textContent = translations[currentLang].latitude;
+            document.getElementById('info-longitude2').textContent = translations[currentLang].longitude;
+            document.getElementById('info-start2').textContent = translations[currentLang].start;
+            document.getElementById('info-frequency2').textContent = translations[currentLang].frequency;
+            document.getElementById('parameters-title2').textContent = translations[currentLang].parameters;
+            document.getElementById('view-data2').textContent = translations[currentLang].viewData;
+            document.getElementById('satellite-view2').textContent = translations[currentLang].satelliteView;
+            document.getElementById('station-view2').textContent = translations[currentLang].stationView;
+            document.getElementById('btn-satellite2').textContent = translations[currentLang].satellite;
+            document.getElementById('btn-map2').textContent = translations[currentLang].map;
+            document.getElementById('btn-hybrid2').textContent = translations[currentLang].hybrid;
+            document.getElementById('footer-title').textContent = translations[currentLang].footerTitle;
+            document.getElementById('footer-desc').textContent = translations[currentLang].footerDesc;
+            document.getElementById('footer-credits').textContent = translations[currentLang].footerCredits;
+            document.getElementById('footer-copyright').innerHTML = translations[currentLang].footerCopyright;
+            document.getElementById('lang-text').textContent = translations[currentLang].langText;
+            document.getElementById('lang-text-mobile').textContent = translations[currentLang].langText;
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
             // Efecto hover para las tarjetas
             const cards = document.querySelectorAll('.station-card');
@@ -1084,8 +1286,12 @@
 
             // Ocultar alerta después de 5 segundos
             setTimeout(() => {
-                document.querySelector('.update-alert').style.display = 'none';
+                const alert = document.querySelector('.update-alert');
+                if (alert) alert.style.display = 'none';
             }, 5000);
+
+            // Configurar botón de idioma
+            document.getElementById('languageButton').addEventListener('click', changeLanguage);
         });
 
         // Funciones para el modal de imágenes
@@ -1128,7 +1334,7 @@
             // Coordenadas de las estaciones
             const stations = {
                 'puear': { lat: -4.03814885, lng: -79.18840381 },
-                'tapichalaca': { lat: -4.492375, lng: -79.132389 } // Coordenadas actualizadas
+                'tapichalaca': { lat: -4.492375, lng: -79.132389 }
             };
 
             // Parámetro para vista
