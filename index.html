@@ -1156,7 +1156,7 @@
     </div>
 
     <script>
-        // Sistema de traducción
+        // Sistema de traducción trilingüe (ES, EN, PT)
         const translations = {
             es: {
                 title: "Visor Meteorológico CITIAB",
@@ -1181,14 +1181,13 @@
                 station2Title: "Estación Tapichalaca",
                 station2Name: "Ecosistema: Bosque Siempre Verde Montano",
                 station2Status: "En línea - Datos actualizados",
-                station2Desc: "La estación meteorológica, operada por el CITIAB de la Universidad Nacional de Loja (UNL), fue implementada en el marco del proyecto CUIDAR. Está equipada con sensores de alta precisión que cumplen con los estándares de la Organización Meteorológica Mundial (OMM) y cuenta con un sistema de transmisión de datos en tiempo real mediante conectividad WiFi. Esta estación se encuentra ubicada en la Reserva Tapichalaca, administrada por la Fundación Jocotoco, en la provincia de Zamora Chinchipe.",
+                station2Desc: "La estación meteorológica ubicada en la Reserva Tapichalaca de la Fundación Jocotoco, en Zamora Chinchipe, es gestionada por la Universidad Nacional de Loja (UNL) a través del CITIAB. Fue implementada en el marco del proyecto CUIDAR y está equipada con sensores de alta precisión que cumplen con los estándares establecidos por la Organización Meteorológica Mundial (OMM), además de un sistema de transmisión de datos en tiempo real mediante conectividad WiFi.",
                 footerTitle: "Centro de Investigaciones Tropicales del Ambiente y Biodiversidad (CITIAB)",
                 footerDesc: "Investigamos biodiversidad, restauración de paisajes, servicios ecosistémicos, hidrología y cambio climático para contribuir al conocimiento científico y la conservación ambiental.",
                 footerCredits: "Desarrollado por el Ing. Kevin David Loja Sarmiento en colaboración del Mgs. Juan Dario Quinde y el Centro de Investigación CITIAB",
                 footerCopyright: "&copy; 2025 CITIAB - Universidad Nacional de Loja. Todos los derechos reservados.",
+                footerAddress: "Ciudad Universitaria Guillermo Falconí - Loja - Ecuador",
                 langText: "ES",
-                
-                // Traducciones adicionales
                 station1Location: "Sector PUFVC",
                 station1Altitude: "2469 msnm",
                 station1Latitude: "4°02'17.3\"S",
@@ -1196,7 +1195,6 @@
                 station1Start: "Junio 2025",
                 station1Frequency: "Cada minuto",
                 station1Parameters: ["Temperatura del aire", "Humedad relativa", "Precipitación", "Radiación solar"],
-                
                 station2Location: "Cantón Palanda en la reserva Tapichalaca",
                 station2Altitude: "2646 msnm",
                 station2Latitude: "4°29'32.6\"S",
@@ -1228,14 +1226,13 @@
                 station2Title: "Tapichalaca Station",
                 station2Name: "Ecosystem: Evergreen Montane Forest",
                 station2Status: "Online - Updated data",
-                station2Desc: "The weather station, operated by CITIAB at the National University of Loja (UNL), was implemented as part of the CUIDAR project. It is equipped with high-precision sensors that comply with World Meteorological Organization (WMO) standards and has a real-time data transmission system via WiFi connectivity. This station is located in the Tapichalaca Reserve, managed by the Jocotoco Foundation, in the province of Zamora Chinchipe.",
+                station2Desc: "The weather station located in the Tapichalaca Reserve of the Jocotoco Foundation in Zamora Chinchipe is managed by the National University of Loja (UNL) through CITIAB. It was implemented as part of the CUIDAR project and is equipped with high-precision sensors that meet the standards established by the World Meteorological Organization (WMO), in addition to a real-time data transmission system via WiFi connectivity.",
                 footerTitle: "Center for Tropical Research on Environment and Biodiversity (CITIAB)",
-                footerDesc: "We research biodiversity, landscape restoration, ecosystem services, hydrology, and climate change to contribute to scientific knowledge and environmental conservation.",
+                footerDesc: "We research biodiversity, landscape restoration, ecosystem services, hydrology and climate change to contribute to scientific knowledge and environmental conservation.",
                 footerCredits: "Developed by Eng. Kevin David Loja Sarmiento in collaboration with Mgs. Juan Dario Quinde and the CITIAB Research Center",
                 footerCopyright: "&copy; 2025 CITIAB - National University of Loja. All rights reserved.",
+                footerAddress: "Guillermo Falconí University City - Loja - Ecuador",
                 langText: "EN",
-                
-                // Traducciones adicionales
                 station1Location: "PUFVC Sector",
                 station1Altitude: "2469 masl",
                 station1Latitude: "4°02'17.3\"S",
@@ -1243,7 +1240,6 @@
                 station1Start: "June 2025",
                 station1Frequency: "Every minute",
                 station1Parameters: ["Air temperature", "Relative humidity", "Precipitation", "Solar radiation"],
-                
                 station2Location: "Palanda Canton in the Tapichalaca reserve",
                 station2Altitude: "2646 masl",
                 station2Latitude: "4°29'32.6\"S",
@@ -1251,14 +1247,61 @@
                 station2Start: "July 2025",
                 station2Frequency: "Every minute",
                 station2Parameters: ["Air temperature", "Relative humidity", "Precipitation", "Solar radiation"]
+            },
+            pt: {
+                title: "Visualizador Meteorológico CITIAB",
+                subtitle: "Monitoramento de variáveis meteorológicas em tempo real",
+                station1Title: "Estação Parque Universitário Francisco Vivar Castro",
+                station1Name: "Ecossistema: Arbustivo Andino",
+                station1Status: "Online - Dados atualizados",
+                station1Desc: "A estação meteorológica do Parque Universitário Francisco Vivar Castro (PUFVC) da Universidade Nacional de Loja (UNL) está equipada com sensores de alta precisão e cumpre com os padrões estabelecidos pela Organização Meteorológica Mundial (OMM). Sua localização estratégica e operação contínua, juntamente com o uso do sistema de transmissão LoRaWAN, são fundamentais para a pesquisa climática e o monitoramento ambiental no sul do Equador.",
+                location: "Localização",
+                altitude: "Altitude",
+                latitude: "Latitude",
+                longitude: "Longitude",
+                start: "Início da transmissão",
+                frequency: "Frequência dos dados",
+                parameters: "Parâmetros medidos",
+                viewData: "Ver dados em tempo real",
+                satelliteView: "Visão de satélite da localização",
+                stationView: "Vista da estação meteorológica",
+                satellite: "Satélite",
+                map: "Mapa",
+                hybrid: "Híbrido",
+                station2Title: "Estação Tapichalaca",
+                station2Name: "Ecossistema: Floresta Montana Sempre-Verde",
+                station2Status: "Online - Dados atualizados",
+                station2Desc: "A estação meteorológica localizada na Reserva Tapichalaca da Fundação Jocotoco, em Zamora Chinchipe, é gerenciada pela Universidade Nacional de Loja (UNL) através do CITIAB. Foi implementada no âmbito do projeto CUIDAR e está equipada com sensores de alta precisão que cumprem os padrões estabelecidos pela Organização Meteorológica Mundial (OMM), além de um sistema de transmissão de dados em tempo real por meio de conectividade WiFi.",
+                footerTitle: "Centro de Pesquisas Tropicais em Ambiente e Biodiversidade (CITIAB)",
+                footerDesc: "Pesquisamos biodiversidade, restauração de paisagens, serviços ecossistêmicos, hidrologia e mudanças climáticas para contribuir com o conhecimento científico e a conservação ambiental.",
+                footerCredits: "Desenvolvido pelo Eng. Kevin David Loja Sarmiento em colaboração com o Mgs. Juan Dario Quinde e o Centro de Pesquisa CITIAB",
+                footerCopyright: "&copy; 2025 CITIAB - Universidade Nacional de Loja. Todos os direitos reservados.",
+                footerAddress: "Cidade Universitária Guillermo Falconí - Loja - Equador",
+                langText: "PT",
+                station1Location: "Setor PUFVC",
+                station1Altitude: "2469 msnm",
+                station1Latitude: "4°02'17.3\"S",
+                station1Longitude: "79°11'18.3\"W",
+                station1Start: "Junho de 2025",
+                station1Frequency: "A cada minuto",
+                station1Parameters: ["Temperatura do ar", "Umidade relativa", "Precipitação", "Radiação solar"],
+                station2Location: "Cantão Palanda na reserva Tapichalaca",
+                station2Altitude: "2646 msnm",
+                station2Latitude: "4°29'32.6\"S",
+                station2Longitude: "79°07'56.6\"W",
+                station2Start: "Julho de 2025",
+                station2Frequency: "A cada minuto",
+                station2Parameters: ["Temperatura do ar", "Umidade relativa", "Precipitação", "Radiação solar"]
             }
         };
 
         let currentLang = 'es'; // Idioma por defecto
 
         function changeLanguage() {
-            // Cambiar idioma
-            currentLang = currentLang === 'es' ? 'en' : 'es';
+            // Rotar entre los idiomas: es -> en -> pt -> es ...
+            const languages = ['es', 'en', 'pt'];
+            const currentIndex = languages.indexOf(currentLang);
+            currentLang = languages[(currentIndex + 1) % languages.length];
 
             // Actualizar textos
             document.getElementById('page-title').textContent = translations[currentLang].title;
@@ -1301,6 +1344,7 @@
             document.getElementById('footer-desc').textContent = translations[currentLang].footerDesc;
             document.getElementById('footer-credits').textContent = translations[currentLang].footerCredits;
             document.getElementById('footer-copyright').innerHTML = translations[currentLang].footerCopyright;
+            document.getElementById('footer-address').textContent = translations[currentLang].footerAddress;
             document.getElementById('lang-text').textContent = translations[currentLang].langText;
             document.getElementById('lang-text-mobile').textContent = translations[currentLang].langText;
             
