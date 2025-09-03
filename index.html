@@ -1118,127 +1118,131 @@
                 <p class="footer-description" id="footer-desc">
                     Investigamos biodiversidad, restauración de paisajes, servicios ecosistémicos, hidrología y cambio
                     climático para contribuir al conocimiento científico y la conservación ambiental.
-                </p> 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+                </p>
+                <!-- Font Awesome -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<footer class="footer-contact">
-    <div class="footer-link">
-        <i class="fas fa-map-marker-alt contact-icon"></i>
-        <address class="footer-address">Ciudad Universitaria Guillermo Falconí, Facultad Agropecuaria –
-            Edificio 83, Segundo Piso, Loja – Ecuador</address>
-        <span class="separator">|</span>
-        <a href="https://unl.edu.ec/citiab" target="_blank" rel="noopener noreferrer" class="white-link"
-            aria-label="Página web del CITIAB">
-            <i class="fas fa-link contact-icon"></i> Página Web
-        </a>
-        <span class="separator">|</span>
-        <a href="https://www.facebook.com/citabunl" target="_blank" rel="noopener noreferrer"
-            class="white-link" aria-label="Facebook del CITIAB">
-            <i class="fab fa-facebook contact-icon"></i> Facebook
-        </a>
-        <span class="separator">|</span>
-        <a href="https://www.instagram.com/citiab.oficial?igsh=MWw0cTY4ZW0weHY0aA==" target="_blank"
-            rel="noopener noreferrer" class="white-link" aria-label="Instagram del CITIAB">
-            <i class="fab fa-instagram contact-icon"></i> Instagram
-        </a>
-        <span class="separator">|</span>
-        <a href="https://x.com/citiab_UNL?t=Fxk9M0ZWLe3GZyhC7nTMvg&s=08" target="_blank"
-            rel="noopener noreferrer" class="white-link" aria-label="Cuenta en X del CITIAB">
-            <i class="fab fa-x-twitter contact-icon"></i> X
-        </a>
-    </div>
-</footer>
+                <footer class="footer-contact">
+                    <div class="footer-link">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <address class="footer-address" id="footer-address">Ciudad Universitaria Guillermo Falconí,
+                            Facultad Agropecuaria –
+                            Edificio 83, Segundo Piso, Loja – Ecuador</address>
+                        <span class="separator">|</span>
+                        <a href="https://unl.edu.ec/citiab" target="_blank" rel="noopener noreferrer" class="white-link"
+                            aria-label="Página web del CITIAB">
+                            <i class="fas fa-link contact-icon"></i>
+                            <span id="footer-web">Página Web</span>
+                        </a>
 
-<style>
-    .footer-link {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        font-size: 14.4px; /* Tamaño reducido de la letra */
-    }
+                        <span class="separator">|</span>
+                        <a href="https://www.facebook.com/citabunl" target="_blank" rel="noopener noreferrer"
+                            class="white-link" aria-label="Facebook del CITIAB">
+                            <i class="fab fa-facebook contact-icon"></i> Facebook
+                        </a>
+                        <span class="separator">|</span>
+                        <a href="https://www.instagram.com/citiab.oficial?igsh=MWw0cTY4ZW0weHY0aA==" target="_blank"
+                            rel="noopener noreferrer" class="white-link" aria-label="Instagram del CITIAB">
+                            <i class="fab fa-instagram contact-icon"></i> Instagram
+                        </a>
+                        <span class="separator">|</span>
+                        <a href="https://x.com/citiab_UNL?t=Fxk9M0ZWLe3GZyhC7nTMvg&s=08" target="_blank"
+                            rel="noopener noreferrer" class="white-link" aria-label="Cuenta en X del CITIAB">
+                            <i class="fab fa-x-twitter contact-icon"></i> X
+                        </a>
+                    </div>
+                </footer>
 
-    .footer-address {
-        display: inline;
-        font-style: normal;
-        margin: 0;
-        padding: 0;
-    }
+                <style>
+                    .footer-link {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 8px;
+                        font-size: 14.4px;
+                        /* Tamaño reducido de la letra */
+                    }
 
-    .white-link {
-        position: relative;
-        text-decoration: none;
-        color: #f8f9fa;
-        transition: color 0.3s ease;
-    }
+                    .footer-address {
+                        display: inline;
+                        font-style: normal;
+                        margin: 0;
+                        padding: 0;
+                    }
 
-    .white-link::after {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background: #f8f9fa;
-        transition: width 0.3s ease;
-    }
+                    .white-link {
+                        position: relative;
+                        text-decoration: none;
+                        color: #f8f9fa;
+                        transition: color 0.3s ease;
+                    }
 
-    .white-link:hover::after {
-        width: 100%;
-    }
+                    .white-link::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -2px;
+                        left: 0;
+                        width: 0%;
+                        height: 2px;
+                        background: #f8f9fa;
+                        transition: width 0.3s ease;
+                    }
 
-    .contact-icon {
-        margin-right: 5px;
-    }
+                    .white-link:hover::after {
+                        width: 100%;
+                    }
 
-    .separator {
-        margin: 0 6px;
-        color: #aaa;
-    }
+                    .contact-icon {
+                        margin-right: 5px;
+                    }
 
-    /* Colores de marca */
-    .white-link i.fa-facebook {
-        color: #1877F2;
-    }
+                    .separator {
+                        margin: 0 6px;
+                        color: #aaa;
+                    }
 
-    .white-link i.fa-instagram {
-        color: #E4405F;
-    }
+                    /* Colores de marca */
+                    .white-link i.fa-facebook {
+                        color: #1877F2;
+                    }
 
-    .white-link i.fa-x-twitter {
-        color: #000;
-    }
+                    .white-link i.fa-instagram {
+                        color: #E4405F;
+                    }
 
-    .white-link i.fa-link {
-        color: #0dcaf0;
-    }
+                    .white-link i.fa-x-twitter {
+                        color: #000;
+                    }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-        .footer-link {
-            flex-direction: column;
-            gap: 4px;
-        }
+                    .white-link i.fa-link {
+                        color: #0dcaf0;
+                    }
 
-        .separator {
-            display: none;
-        }
-    }
-</style>   
-                </div>
+                    /* Responsive */
+                    @media (max-width: 600px) {
+                        .footer-link {
+                            flex-direction: column;
+                            gap: 4px;
+                        }
 
-                <div class="credits" id="footer-credits">
-                    Desarrollado por el Ing. Kevin David Loja Sarmiento en colaboración del Mgs. Juan Dario Quinde y el
-                    Centro de Investigación CITIAB
-                </div>
-
-                <div class="copyright" id="footer-copyright">
-                    &copy; 2025 CITIAB - Universidad Nacional de Loja. Todos los derechos reservados.
-                </div>
+                        .separator {
+                            display: none;
+                        }
+                    }
+                </style>
             </div>
-        </footer>
+
+            <div class="credits" id="footer-credits">
+                Desarrollado por el Ing. Kevin David Loja Sarmiento en colaboración del Mgs. Juan Dario Quinde y el
+                Centro de Investigación CITIAB
+            </div>
+
+            <div class="copyright" id="footer-copyright">
+                &copy; 2025 CITIAB - Universidad Nacional de Loja. Todos los derechos reservados.
+            </div>
+    </div>
+    </footer>
     </div>
 
     <div id="imageModal" class="modal">
@@ -1281,7 +1285,8 @@
                 footerDesc: "Investigamos biodiversidad, restauración de paisajes, servicios ecosistémicos, hidrología y cambio climático para contribuir al conocimiento científico y la conservación ambiental.",
                 footerCredits: "Desarrollado por el Ing. Kevin David Loja Sarmiento en colaboración del Mgs. Juan Dario Quinde y el Centro de Investigación CITIAB",
                 footerCopyright: "&copy; 2025 CITIAB - Universidad Nacional de Loja. Todos los derechos reservados.",
-                footerAddress: "Ciudad Universitaria Guillermo Falconí - Loja - Ecuador",
+                footerAddress: "Ciudad Universitaria Guillermo Falconí, Facultad Agropecuaria – Edificio 83, Segundo Piso, Loja – Ecuador",
+                footerWeb: "Página Web",
                 langText: "ES",
                 station1Location: "Sector PUFVC",
                 station1Altitude: "2469 msnm",
@@ -1326,7 +1331,8 @@
                 footerDesc: "We research biodiversity, landscape restoration, ecosystem services, hydrology and climate change to contribute to scientific knowledge and environmental conservation.",
                 footerCredits: "Developed by Eng. Kevin David Loja Sarmiento in collaboration with Mgs. Juan Dario Quinde and the CITIAB Research Center",
                 footerCopyright: "&copy; 2025 CITIAB - National University of Loja. All rights reserved.",
-                footerAddress: "Guillermo Falconí University City - Loja - Ecuador",
+                footerAddress: "Guillermo Falconí University Campus, Faculty of Agriculture – Building 83, Second Floor, Store – Ecuador",
+                footerWeb: "Website",
                 langText: "EN",
                 station1Location: "PUFVC Sector",
                 station1Altitude: "2469 masl",
@@ -1371,7 +1377,8 @@
                 footerDesc: "Pesquisamos biodiversidade, restauração de paisagens, serviços ecossistêmicos, hidrologia e mudanças climáticas para contribuir com o conhecimento científico e a conservação ambiental.",
                 footerCredits: "Desenvolvido pelo Eng. Kevin David Loja Sarmiento em colaboração com o Mgs. Juan Dario Quinde e o Centro de Pesquisa CITIAB",
                 footerCopyright: "&copy; 2025 CITIAB - Universidade Nacional de Loja. Todos os direitos reservados.",
-                footerAddress: "Cidade Universitária Guillermo Falconí - Loja - Equador",
+                footerAddress: "Cidade Universitária Guillermo Falconí, Faculdade de Agricultura – Edifício 83, Segundo Andar, Loja – Equador",
+                footerWeb: "Página Web",
                 langText: "PT",
                 station1Location: "Setor PUFVC",
                 station1Altitude: "2469 msnm",
@@ -1442,6 +1449,7 @@
             document.getElementById('footer-address').textContent = translations[currentLang].footerAddress;
             document.getElementById('lang-text').textContent = translations[currentLang].langText;
             document.getElementById('lang-text-mobile').textContent = translations[currentLang].langText;
+            document.getElementById('footer-web').textContent = translations[currentLang].footerWeb;
 
             // Actualizar detalles específicos de la estación 1
             document.getElementById('station1-location').textContent = translations[currentLang].station1Location;
@@ -1462,6 +1470,7 @@
             // Actualizar parámetros medidos
             updateParameters('station1-parameters', translations[currentLang].station1Parameters);
             updateParameters('station2-parameters', translations[currentLang].station2Parameters);
+
         }
 
         function updateParameters(containerId, parameters) {
